@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ElevateJek – Wear Your Ambition</title>
+<style>
+:root{color-scheme:light;--bg:#fff;--fg:#111;--mut:#666;--card:#f3f1ec;--line:#ddd;--red:#c8102e;--blk:#111;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+:root[data-theme="dark"]{color-scheme:dark;--bg:#141414;--fg:#f2f2f2;--mut:#aaa;--card:#202020;--line:#333}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.5 system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+button{font:inherit;cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#111;color:#fff;display:flex;align-items:center;gap:20px;padding:10px 20px;flex-wrap:wrap}
+.logo{font:italic 700 26px Georgia,serif;cursor:pointer;margin-right:auto}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;cursor:pointer;font-size:15px;padding:4px 0;border-bottom:2px solid transparent}nav a:hover,nav a.on{border-color:var(--red)}
+.ic{background:none;border:0;color:#fff;font-size:20px;position:relative;padding:4px 6px}
+.badge{position:absolute;top:-4px;right:-6px;background:var(--red);border-radius:10px;font-size:11px;min-width:18px;text-align:center}
+main{max-width:1200px;margin:auto;padding:20px}
+.btn{background:var(--red);color:#fff;border:0;padding:14px 26px;border-radius:6px;font-weight:700;letter-spacing:.5px}.btn:hover{filter:brightness(1.15)}
+.btn.dk{background:#111;color:#fff}.btn.ol{background:none;color:var(--fg);border:2px solid var(--fg)}.btn.sm{padding:8px 12px;font-size:13px}
+.hero{background:linear-gradient(120deg,#0c0c0c,#2b2b2b 60%,#444);color:#fff;border-radius:10px;padding:70px 40px;margin-bottom:30px}
+.hero h1{font:300 clamp(36px,7vw,72px)/1.05 system-ui;letter-spacing:6px;margin:0 0 14px}.hero h1 b{color:var(--red)}.hero p{max-width:520px;color:#ddd}
+h2{font-size:28px;margin:30px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border-radius:10px;overflow:hidden;position:relative}
+.card .img{cursor:pointer;display:block;padding:10px}.card .b{padding:0 12px 12px}.card h3{font-size:15px;margin:4px 0}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.heart{background:var(--bg);border:1px solid var(--line);border-radius:6px;width:36px;height:36px;color:var(--fg)}.heart.on{color:var(--red)}
+.tag{position:absolute;top:10px;left:10px;background:#111;color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;z-index:1}
+.banner{display:grid;grid-template-columns:1fr 1fr;background:#111;color:#fff;border-radius:10px;overflow:hidden;margin:30px 0}.banner div{padding:40px}
+.crew{background:#111;color:#fff;text-align:center;padding:40px 20px;border-radius:10px;margin-top:30px}
+.crew input{padding:12px;border-radius:6px;border:0;width:min(320px,70%);margin-right:8px}
+footer{background:#eee9df;color:#111;padding:30px 20px;margin-top:30px;display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;font-size:14px}footer a{display:block;cursor:pointer;margin:4px 0}
+.shop{display:grid;grid-template-columns:260px 1fr;gap:26px}@media(max-width:800px){.shop,.pd,.co,.banner{grid-template-columns:1fr}}
+aside{background:var(--card);padding:16px;border-radius:10px;align-self:start}aside h4{margin:14px 0 6px}
+select,input[type=text],input[type=email],textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit}
+.chip{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:7px 12px;margin:0 4px 6px 0}.chip.on{background:#111;color:#fff;border-color:#111}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid var(--bg);outline:1px solid var(--line);margin-right:8px;padding:0}.sw.on{outline:3px solid var(--red)}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:30px}.pd .big{background:var(--card);border-radius:10px;padding:20px}
+.calc{background:var(--card);border-radius:8px;padding:12px 14px;margin:14px 0;font-size:18px}.calc b{color:var(--red)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:6px}.qty button{width:36px;height:36px;border:0;background:none;color:var(--fg);font-size:20px}.qty span{min-width:30px;text-align:center}
+.ci{display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.co{display:grid;grid-template-columns:1.2fr 1fr;gap:30px}.sum{background:var(--card);padding:20px;border-radius:10px;align-self:start}
+.sum .r{display:flex;justify-content:space-between;margin:8px 0}.sum .t{font-size:22px;font-weight:700;border-top:2px solid var(--fg);padding-top:10px}
+label{display:block;font-weight:600;margin:12px 0 4px}.err{color:var(--red);font-size:13px;min-height:16px}
+.pay{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 20px;border-radius:8px;opacity:0;transition:.3s;pointer-events:none;z-index:9}#toast.show{opacity:1}
+.ok{text-align:center;padding:60px 10px}
+</style></head><body>
+<header><div class="logo" onclick="go('home')">ElevateJek</div>
+<nav id="nav"></nav>
+<button class="ic" title="Search" onclick="go('search')">🔍</button>
+<button class="ic" title="My account" onclick="go('account')">👤</button>
+<button class="ic" title="Cart" onclick="go('cart')">🛒<span class="badge" id="cb">0</span></button></header>
+<main id="app"></main>
+<footer><div><div class="logo" style="color:#111">ElevateJek</div>Wear your ambition.<br>© 2026 ElevateJek. All rights reserved.</div>
+<div><b>Quick Links</b><a onclick="go('shop')">Shop</a><a onclick="go('shop',{sort:'new'})">New Arrivals</a><a onclick="go('collection')">About</a><a onclick="go('blog')">Blog</a><a onclick="go('contact')">Contact</a></div>
+<div><b>Customer Care</b><a onclick="toast('Shipping: ₱100 flat, free on orders ₱3,000+')">Shipping</a><a onclick="toast('Returns accepted within 7 days')">Returns</a><a onclick="go('contact')">FAQs</a><a onclick="go('account',{tab:'track'})">Track Order</a></div>
+<div><b>We accept</b>VISA · GCash · Maya · BDO · BPI</div></footer>
+<div id="toast"></div>
+<script>
+const COL={Black:"#151515",White:"#f4f4f4",Red:"#b3122a",Grey:"#7d7d7d"};
+const P=[
+{id:1,n:"No Thing Is Impossible Tee",p:650,c:"Tees",l:["NO THING","IS","IMPOSSIBLE"],a:"#f5b21b",nw:1},
+{id:2,n:"Born To Be Awesome Tee",p:650,c:"Tees",l:["BORN","TO BE","AWESOME"],a:"#ffffff",nw:1},
+{id:3,n:"Rich Or Be Rich Tee",p:650,c:"Tees",l:["RISE","OR BE","RICH"],a:"#e0263c",nw:1},
+{id:4,n:"Don’t Quit Tee",p:650,c:"Tees",l:["DON’T","QUIT"],a:"#f5d442",nw:1},
+{id:5,n:"No Risk No Story Tee",p:650,c:"Tees",l:["NO RISK","NO STORY"],a:"#ffffff"},
+{id:6,n:"Believe in Yourself Tee",p:650,c:"Tees",l:["BELIEVE","IN","YOURSELF"],a:"#4fc3f7"},
+{id:7,n:"No Fear No Limits Tee",p:650,c:"Tees",l:["NO FEAR","NO LIMITS"],a:"#ff7043"},
+{id:8,n:"Born Broke Tee",p:650,c:"Tees",l:["BORN","BROKE"],a:"#ffffff"},
+{id:9,n:"Money Is Not Everything Tee",p:650,c:"Tees",l:["MONEY IS","NOT","EVERYTHING"],a:"#81c784"},
+{id:10,n:"Don’t Quit Until You Fit Long Sleeve",p:850,c:"Long Sleeves",l:["DON’T QUIT","UNTIL","YOU FIT"],a:"#ffffff",ls:1}];
+const SZ=["XS","S","M","L","XL","XXL"],PESO=n=>"₱"+n.toLocaleString("en-PH",{minimumFractionDigits:2,maximumFractionDigits:2});
+const FREE=3000,SHIP=100;
+let orders=[{no:"EJ-310310310",names:"Born Broke Tee",id:8,price:650,st:"Shipped"},{no:"EJ-310310311",names:"Money Is Not Everything Tee",id:9,price:650,st:"In Transit"},{no:"EJ-310310312",names:"No Fear, No Limits Tee",id:7,price:650,st:"Delivered"}],Q="",addr={},cart=[],wish=new Set(),view="home",arg={},F={cat:"All",size:"All",color:"All",max:1000,sort:"feat",wish:0},sel={size:"M",color:"Black",qty:1},promo=0;
+const $=s=>document.querySelector(s),pid=i=>P.find(x=>x.id==i);
+function tee(p,color){const c=COL[color||"Black"],dark=["Black","Red","Grey"].includes(color||"Black");
+ const body=p.ls?"M50 30 L20 70 L20 150 L40 150 L40 75 L50 80 L50 205 L150 205 L150 80 L160 75 L160 150 L180 150 L180 70 L150 30 Q100 55 50 30Z":"M50 30 L12 62 L35 95 L50 82 L50 205 L150 205 L150 82 L165 95 L188 62 L150 30 Q100 55 50 30Z";
+ const tc=color==="White"?"#111":p.a,y=105-(p.l.length-1)*13;
+ return `<svg viewBox="0 0 200 220" width="100%" role="img" aria-label="${p.n}"><path d="${body}" fill="${c}" stroke="#0003" stroke-width="2"/>${p.l.map((t,i)=>`<text x="100" y="${y+i*26}" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="${i==1&&p.l.length==3?15:22}" fill="${tc}">${t}</text>`).join("")}</svg>`}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t.h);t.h=setTimeout(()=>t.classList.remove("show"),1800)}
+function theme(){const r=document.documentElement,d=r.dataset.theme=="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark"}
+function go(v,a){view=v;arg=a||{};if(v=="shop"){F={cat:"All",size:"All",color:"All",max:1000,sort:"feat",wish:0,...(a||{})}}if(v=="product"){sel={size:"M",color:"Black",qty:1}}render();scrollTo(0,0)}
+function card(p){return `<div class="card">${p.nw?'<span class="tag">NEW</span>':""}<a class="img" onclick="go('product',{id:${p.id}})">${tee(p)}</a><div class="b"><h3>${p.n}</h3><div class="row"><b>${PESO(p.p)}</b><span><button class="btn dk sm" onclick="quick(${p.id})">Add to cart</button> <button class="heart ${wish.has(p.id)?"on":""}" aria-label="Save" onclick="fav(${p.id})">${wish.has(p.id)?"♥":"♡"}</button></span></div></div></div>`}
+function quick(id){add(id,"M","Black",1)}
+function fav(id){wish.has(id)?wish.delete(id):wish.add(id);render()}
+function add(id,size,color,qty){const k=cart.find(i=>i.id==id&&i.size==size&&i.color==color);k?k.qty+=qty:cart.push({id,size,color,qty});toast(`Added ${qty} × ${pid(id).n} (${size}, ${color})`);render()}
+function totals(){const sub=cart.reduce((s,i)=>s+pid(i.id).p*i.qty,0),disc=promo?Math.round(sub*promo*100)/100:0,ship=!cart.length||sub-disc>=FREE?0:SHIP;return{sub,disc,ship,total:sub-disc+ship}}
+function chg(i,d){cart[i].qty=Math.max(0,cart[i].qty+d);if(!cart[i].qty)cart.splice(i,1);render()}
+function code(){const v=($("#pc").value||"").trim().toUpperCase();if(v=="ELEVATE10"){promo=.1;toast("10% discount applied")}else{promo=0;toast("Invalid code. Try ELEVATE10")}render()}
+const pages={
+home:()=>`<div class="hero"><h1>ELEVATE<br>YOUR <b>MINDSET</b></h1><p>Dream big. Stay focused. Work hard every day, overcome every challenge, and become a better version of yourself.</p><button class="btn" onclick="go('shop')">Shop Now</button></div>
+<h2>New Arrivals</h2><div class="grid">${P.filter(p=>p.nw).map(card).join("")}</div>
+<div class="banner"><div style="background:linear-gradient(135deg,#222,#000);min-height:200px"></div><div><h2 style="margin-top:0">More than clothes. It’s a mindset.</h2><p>ElevateJek is motivational streetwear for those who dream bigger, work harder, and aim higher.</p><button class="btn ol" style="color:#fff;border-color:#fff" onclick="go('collection')">Learn More</button></div></div>
+<h2>Shop by Vibe</h2><div class="grid">${["Motivation","Success","Dead Bat","Streetwear"].map((v,i)=>`<div class="card" style="cursor:pointer" onclick="go('shop')"><a class="img">${tee(P[[0,5,7,2][i]],["Black","White","Grey","Red"][i])}</a><div class="b"><h3>${v}</h3></div></div>`).join("")}</div>
+<div class="crew"><h2 style="margin-top:0">JOIN THE ELEVATEJEK CREW</h2><p>Get exclusive drops, updates, and motivation.</p><input id="em" type="email" placeholder="Your email address"><button class="btn" style="background:#fff;color:#111" onclick="sub()">SUBSCRIBE</button></div>`,
+shop:()=>{let L=P.filter(p=>(F.cat=="All"||p.c==F.cat)&&p.p<=F.max&&(!F.wish||wish.has(p.id)));if(F.sort=="lo")L.sort((a,b)=>a.p-b.p);if(F.sort=="hi")L.sort((a,b)=>b.p-a.p);if(F.sort=="new")L.sort((a,b)=>(b.nw||0)-(a.nw||0));
+ const ch=(k,arr)=>["All",...arr].map(v=>`<button class="chip ${F[k]==v?"on":""}" onclick="F.${k}='${v}';render()">${v}</button>`).join("");
+ return `<h2 style="margin-top:0">${F.wish?"Saved Items":"Shop All"}</h2><div class="shop"><aside><div class="row"><b style="font-size:20px">Filter</b><a style="cursor:pointer;color:var(--red)" onclick="go('shop')">Clear All</a></div>
+ <h4>Category</h4>${ch("cat",["Tees","Long Sleeves"])}<h4>Size</h4>${ch("size",SZ)}<h4>Color</h4>${ch("color",Object.keys(COL))}
+ <h4>Max price: <b>${PESO(F.max)}</b></h4><input type="range" min="500" max="1000" step="50" value="${F.max}" style="width:100%" oninput="F.max=+this.value;render()">
+ <h4>Sort by</h4><select onchange="F.sort=this.value;render()">${[["feat","Featured"],["new","Newest"],["lo","Price: low to high"],["hi","Price: high to low"]].map(o=>`<option value="${o[0]}" ${F.sort==o[0]?"selected":""}>${o[1]}</option>`).join("")}</select></aside>
+ <div><p style="color:var(--mut)">${L.length} item${L.length==1?"":"s"}</p><div class="grid">${L.map(card).join("")||"<p>No items match your filters.</p>"}</div></div></div>`},
+product:()=>{const p=pid(arg.id),line=p.p*sel.qty;return `<div class="pd"><div class="big">${tee(p,sel.color)}</div><div><h1 style="margin:0">${p.n}</h1><p>★★★★☆ <span style="color:var(--mut)">46 Reviews</span></p>
+ <b>Size</b><div style="margin:6px 0 14px">${SZ.map(s=>`<button class="chip ${sel.size==s?"on":""}" onclick="sel.size='${s}';render()">${s}</button>`).join("")}</div>
+ <b>Color: ${sel.color}</b><div style="margin:8px 0">${Object.keys(COL).map(c=>`<button class="sw ${sel.color==c?"on":""}" title="${c}" style="background:${COL[c]}" onclick="sel.color='${c}';render()"></button>`).join("")}</div>
+ <b>Quantity</b> <div class="qty"><button onclick="sel.qty=Math.max(1,sel.qty-1);render()">−</button><span>${sel.qty}</span><button onclick="sel.qty=Math.min(20,sel.qty+1);render()">+</button></div>
+ <div class="calc">${PESO(p.p)} × ${sel.qty} = <b>${PESO(line)}</b></div>
+ <button class="btn" style="width:100%;padding:18px" onclick="add(${p.id},sel.size,sel.color,sel.qty)">ADD TO CART</button>
+ <button class="btn ol" style="width:100%;margin-top:10px" onclick="fav(${p.id})">${wish.has(p.id)?"♥ SAVED TO WISHLIST":"♡ ADD TO WISHLIST"}</button>
+ <h3>Description</h3><p>The ${p.n} features a bold, hand-painted style logo on the front. Made from comfortable cotton for everyday wear and durability. A reminder to take risks, start your journey, and pursue your ambitions.</p>
+ <details><summary><b>Material &amp; Care</b></summary><p>100% cotton. Machine wash cold, inside out. Do not bleach. Tumble dry low.</p></details></div></div>
+ <h2>You May Also Like</h2><div class="grid">${P.filter(x=>x.id!=p.id).slice(3,7).map(card).join("")}</div>`},
+cart:()=>{if(!cart.length)return `<div class="ok"><h2>Your cart is empty</h2><button class="btn" onclick="go('shop')">Start Shopping</button></div>`;const t=totals();
+ return `<h2 style="margin-top:0">Your Cart</h2><div class="co"><div>${cart.map((i,x)=>{const p=pid(i.id);return `<div class="ci"><div>${tee(p,i.color)}</div><div><b>${p.n}</b><br><span style="color:var(--mut)">Color: ${i.color} · Size: ${i.size} · ${PESO(p.p)}</span><br><div class="qty" style="margin-top:6px"><button onclick="chg(${x},-1)">−</button><span>${i.qty}</span><button onclick="chg(${x},1)">+</button></div> <button class="btn sm ol" onclick="chg(${x},-99)">Remove</button></div><b>${PESO(p.p*i.qty)}</b></div>`}).join("")}</div>
+ <div class="sum"><h3 style="margin-top:0">Order Summary</h3><div class="r"><span>Subtotal (${cart.reduce((s,i)=>s+i.qty,0)} items)</span><span>${PESO(t.sub)}</span></div>${t.disc?`<div class="r" style="color:var(--red)"><span>Discount (10%)</span><span>−${PESO(t.disc)}</span></div>`:""}
+ <div class="r"><span>Shipping</span><span>${t.ship?PESO(t.ship):"FREE"}</span></div>${t.ship?`<small style="color:var(--mut)">Spend ${PESO(FREE-(t.sub-t.disc))} more for free shipping</small>`:""}
+ <div class="r t"><span>Total</span><span>${PESO(t.total)}</span></div>
+ <label>Gift / promo code</label><div class="row"><input type="text" id="pc" placeholder="Try ELEVATE10"><button class="btn dk sm" onclick="code()">Apply</button></div>
+ <button class="btn" style="width:100%;margin-top:16px" onclick="go('checkout')">Checkout</button></div></div>`},
+checkout:()=>{if(!cart.length)return pages.cart();const t=totals();return `<h2 style="margin-top:0">Checkout</h2><div class="co"><div><h3>Shipping Address</h3>
+ ${[["fn","Full Name"],["ad","Address"],["ci","City"],["zp","Zip Code"]].map(f=>`<label>${f[1]}</label><input type="text" id="${f[0]}"><div class="err" id="e${f[0]}"></div>`).join("")}
+ <h3>Payment Method</h3>${["Credit Card","BDO Card","BPI Card"].map((m,i)=>`<label class="pay"><input type="radio" name="pm" ${i?"":"checked"}> ${m}</label>`).join("")}</div>
+ <div class="sum"><h3 style="margin-top:0">Order Summary</h3>${cart.map(i=>`<div class="r"><span>${i.qty} × ${pid(i.id).n}<br><small style="color:var(--mut)">${i.color}, ${i.size}</small></span><span>${PESO(pid(i.id).p*i.qty)}</span></div>`).join("")}
+ <div class="r"><span>Subtotal</span><span>${PESO(t.sub)}</span></div>${t.disc?`<div class="r"><span>Discount</span><span>−${PESO(t.disc)}</span></div>`:""}<div class="r"><span>Shipping</span><span>${t.ship?PESO(t.ship):"FREE"}</span></div><div class="r t"><span>Total</span><span>${PESO(t.total)}</span></div>
+ <button class="btn" style="width:100%;margin-top:14px" onclick="place()">Place Order</button></div></div>`},
+done:()=>`<div class="ok"><h1>🎉 Thank you!</h1><p>Order <b>${arg.no}</b> is confirmed.<br>Total paid: <b>${PESO(arg.total)}</b></p><button class="btn" onclick="go('home')">Back to Home</button></div>`};
+const ord=o=>`<div class="ci"><div>${tee(pid(o.id))}</div><div><b>Order No.: ${o.no}</b><br>Product: ${o.names}<br>Price: ${PESO(o.price)}</div><span class="tag" style="position:static">${o.st}</span></div>`;
+function sres(){const q=Q.trim().toLowerCase();return P.filter(p=>p.n.toLowerCase().includes(q)).map(card).join("")||"<p>No products found.</p>"}
+function sr(){$("#sres").innerHTML=sres()}
+function send(){const g=k=>$("#c"+k).value.trim();if(g("n").length<2||!/^\S+@\S+\.\S+$/.test(g("e"))||!g("s")||g("m").length<5)return toast("Please complete all fields with a valid email");["n","e","s","m"].forEach(k=>$("#c"+k).value="");toast("Message sent. We’ll reply soon!")}
+function saveAddr(){["fn","ad","ci","zp"].forEach(k=>addr[k]=$("#a"+k).value.trim());if(!addr.fn||!addr.ad)return toast("Name and address are required");toast("Address saved");render()}
+Object.assign(pages,{
+search:()=>`<h2 style="margin-top:0">Search</h2><input type="text" id="q" value="${Q}" placeholder="Search products..." oninput="Q=this.value;sr()"><div id="sres" class="grid" style="margin-top:16px">${sres()}</div>`,
+collection:()=>`<div class="banner"><div><h2 style="margin-top:0">WHY WE EXIST</h2><p>We’re not just a clothing brand. We’re a movement of dreamers, doers, and go-getters.</p><button class="btn" onclick="go('shop')">Shop Now</button></div><div style="background:linear-gradient(135deg,#222,#000)"></div></div><div class="grid">${P.slice(0,4).map(card).join("")}</div>`,
+blog:()=>`<div class="co"><div>${[["September 10, 2026"],["September 5, 2026"],["July 16, 2026"],["June 10, 2026"]].map(d=>`<details style="border-bottom:1px solid var(--line);padding:14px 0"><summary><b>Believe in Yourself: The Power of Self-Confidence</b><br><small style="color:var(--mut)">${d[0]}</small></summary><p>Believe in your potential, trust your journey, and keep pushing toward your goals. Great things begin when you believe in yourself.</p></details>`).join("")}</div><div class="sum"><h3 style="margin-top:0">Categories</h3>${["Motivation","Success","Streetwear","Lifestyle","Fashion Tips"].map(c=>`<p><a style="cursor:pointer" onclick="toast('Showing ${c} posts')">${c}</a></p>`).join("")}</div></div>`,
+contact:()=>`<div class="co"><div><h2 style="margin-top:0">Contact Information</h2><p>Address<br>City, State, Zip<br>Email: jericcardino283@gmail.com<br>Phone: 09453387553</p></div><div><h2 style="margin-top:0">Send Me a Message</h2><label>Name</label><input type="text" id="cn" placeholder="Your Name"><label>Email</label><input type="text" id="ce" placeholder="Example@email.com"><label>Subject</label><input type="text" id="cs" placeholder="Select Subject"><label>Message</label><textarea id="cm" rows="5" placeholder="Your Message..."></textarea><button class="btn" style="width:100%;margin-top:14px" onclick="send()">Send Message</button></div></div>`,
+account:()=>{const t=arg.tab||"dash",T=[["dash","Dashboard"],["orders","Order History"],["track","Track Orders"],["saved","Saved Items"],["addr","Address Book"]],S=["Processing","Shipped","In Transit","Delivered"];
+ const b=t=="dash"?`<h2 style="margin-top:0">Welcome Back, Customer!</h2><p>Message from ElevateJek: Stay tuned for upcoming clothing drops and exclusive new designs.</p><h3>Recent Orders</h3>${orders.slice(0,3).map(ord).join("")}<h3>Special Items</h3><div class="grid">${P.slice(4,8).map(card).join("")}</div>`:t=="orders"?`<h2 style="margin-top:0">Order History</h2>${orders.map(ord).join("")}`:t=="track"?`<h2 style="margin-top:0">Track Orders</h2>${orders.map(o=>ord(o)+`<p>${S.map(s=>s==o.st?`<b style="color:var(--red)">${s}</b>`:s).join(" → ")}</p>`).join("")}`:t=="saved"?`<h2 style="margin-top:0">Saved Items</h2><div class="grid">${P.filter(p=>wish.has(p.id)).map(card).join("")||"<p>No saved items yet. Tap ♡ on any product.</p>"}</div>`:`<h2 style="margin-top:0">Address Book</h2>${addr.ad?`<p><b>${addr.fn}</b><br>${addr.ad}, ${addr.ci||""} ${addr.zp||""}</p>`:""}${[["fn","Full Name"],["ad","Address"],["ci","City"],["zp","Zip Code"]].map(f=>`<label>${f[1]}</label><input type="text" id="a${f[0]}" value="${addr[f[0]]||""}">`).join("")}<button class="btn" style="margin-top:14px" onclick="saveAddr()">Save Address</button>`;
+ return `<div class="co" style="grid-template-columns:200px 1fr"><div>${T.map(x=>`<p><a style="cursor:pointer;font-weight:${t==x[0]?700:400}" onclick="arg.tab='${x[0]}';render()">${x[1]}</a></p>`).join("")}</div><div>${b}</div></div>`}
+});
+function sub(){const e=$("#em").value;/^\S+@\S+\.\S+$/.test(e)?toast("Welcome to the crew!"):toast("Please enter a valid email")}
+function place(){let bad=0;["fn","ad","ci","zp"].forEach(k=>{const v=$("#"+k).value.trim(),ok=k=="zp"?/^\d{4}$/.test(v):v.length>1;$("#e"+k).textContent=ok?"":(k=="zp"?"Enter a 4-digit zip code":"Required");if(!ok)bad=1});
+ if(bad)return toast("Please complete the required fields");const total=totals().total,no="EJ-"+Math.floor(1e8+Math.random()*9e8);orders.unshift({no,names:cart.map(i=>i.qty+" × "+pid(i.id).n).join(", "),id:cart[0].id,price:total,st:"Processing"});cart=[];promo=0;go("done",{no,total})}
+function render(){$("#app").innerHTML=pages[view]();$("#cb").textContent=cart.reduce((s,i)=>s+i.qty,0);if(view=="search")$("#q").focus();
+ const N=[["Home","home"],["Shop All","shop"],["New Arrivals","new"],["Collections","collection"],["About Us","collection"],["Blog","blog"]];
+ $("#nav").innerHTML=N.map(n=>`<a class="${view==n[1]&&n[0]!="Collections"?"on":""}" onclick="${n[1]=="new"?"go('shop',{sort:'new'})":`go('${n[1]}')`}">${n[0]}</a>`).join("")}
+render();
+</script></body></html>
